@@ -1,8 +1,8 @@
 version: 2
 updates:
-  # For pnpm (uses npm ecosystem)
+  # For npm/Yarn (uses npm ecosystem)
   - package-ecosystem: "npm"
-    directory: "/" # Location of package.json and pnpm-lock.yaml
+    directory: "/" # Location of package.json and yarn.lock
     schedule:
       interval: "weekly"
     commit-message:

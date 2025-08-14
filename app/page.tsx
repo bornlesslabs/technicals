@@ -1,5 +1,5 @@
-import { ModeToggle } from "@/components/mode-toggle"
-import { ContactForm } from "@/components/contact-form"
+import { ModeToggle } from '@/components/mode-toggle';
+import { ContactForm } from '@/components/contact-form';
 
 export default function Home() {
   return (
@@ -16,8 +16,8 @@ export default function Home() {
           <h2 className="text-2xl font-semibold mb-4 neon-gradient">Technical Products</h2>
           <p className="max-w-2xl">
             We are passionate about delivering cutting-edge technical solutions. Our expertise spans
-            across various domains of technology, ensuring that we can meet diverse client needs with
-            precision and innovation.
+            across various domains of technology, ensuring that we can meet diverse client needs
+            with precision and innovation.
           </p>
         </section>
 
@@ -51,6 +51,5 @@ export default function Home() {
         <p>&copy; 2025 technicals.dev / Bornless Labs All rights reserved.</p>
       </footer>
     </div>
-  )
+  );
 }
-

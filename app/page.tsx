@@ -48,7 +48,7 @@ export default function Home() {
       </main>
 
       <footer className="container mx-auto px-4 py-8 text-center">
-        <p>&copy; 2024 technicals.dev. All rights reserved.</p>
+        <p>&copy; 2025 technicals.dev / Bornless Labs All rights reserved.</p>
       </footer>
     </div>
   )

@@ -2,6 +2,8 @@
 
 This plan outlines how to remove Vercel from your workflow and deploy your Next.js app directly from GitHub to your custom domain technicals.dev using GitHub Actions and a static hosting solution (e.g., GitHub Pages, Cloudflare Pages, or a VPS). This example uses GitHub Pages for static export, but you can adapt it for other hosts.
 
+Going forward it will be hosted on https://bornlesslabs.github.io/technicals/ until a new domain has been acquired
+
 ---
 
 ## 1. Prerequisites

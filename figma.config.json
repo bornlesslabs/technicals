@@ -1,0 +1,16 @@
+{
+  "codeConnect": {
+    "parser": "react",
+    "include": [
+      "src/components/**/*.{tsx,ts,jsx,js}",
+      "components/**/*.{tsx,ts,jsx,js}",
+      "app/**/*.{tsx,ts,jsx,js}"
+    ],
+    "exclude": [
+      "node_modules/**",
+      "dist/**",
+      "build/**",
+      ".next/**"
+    ]
+  }
+}

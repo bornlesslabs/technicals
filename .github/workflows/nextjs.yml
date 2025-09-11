@@ -22,6 +22,17 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       
+      - name: Clean workspace
+        run: |
+          echo "=== Cleaning potential conflicting files ==="
+          rm -rf .next || true
+          rm -rf out || true
+          rm -rf node_modules || true
+          rm -f next.config.js || true
+          find . -name "next.config.js" -delete || true
+          echo "=== Verifying clean state ==="
+          ls -la next.config.* || true
+      
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
@@ -31,18 +42,36 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       
-      - name: Debug config files
+      - name: Debug and clean config files
         run: |
-          echo "Checking for Next.js config files:"
-          ls -la next.config.*
-          echo "Removing any conflicting next.config.js if it exists:"
-          rm -f next.config.js
+          echo "=== Before cleanup ==="
+          find . -name "next.config.*" -type f || true
+          ls -la next.config.* || true
+          echo "=== Removing any next.config.js files ==="
+          find . -name "next.config.js" -delete || true
+          rm -f next.config.js || true
+          echo "=== After cleanup ==="
+          find . -name "next.config.*" -type f || true
+          ls -la next.config.* || true
+          echo "=== Verifying our next.config.mjs ==="
+          cat next.config.mjs
+          echo "=== Creating .nextrc to force mjs config ==="
+          echo '{"configFile": "./next.config.mjs"}' > .nextrc
       
       - name: Build Next.js
         env:
           GITHUB_PAGES: true
           NODE_ENV: production
-        run: yarn build
+        run: |
+          echo "=== Final check before build ==="
+          ls -la next.config.* || true
+          rm -f next.config.js || true
+          echo "=== Checking for any postinstall scripts ==="
+          find node_modules -name "*.js" -path "*/postinstall*" || true
+          echo "=== Building ==="
+          yarn build
+          echo "=== Checking if config files appeared during build ==="
+          ls -la next.config.* || true
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

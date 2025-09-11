@@ -9,8 +9,8 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // GitHub Pages and production configuration
-  ...(process.env.NODE_ENV === 'production' || process.env.GITHUB_PAGES === 'true') && {
+  // GitHub Pages / static export configuration (only when explicitly signaled)
+  ...(process.env.GITHUB_PAGES === 'true') && {
     output: 'export',
     basePath: '/technicals',
     assetPrefix: '/technicals/',

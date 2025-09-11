@@ -10,8 +10,11 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  basePath: '/technicals',
-  assetPrefix: '/technicals/',
+  // Only set basePath and assetPrefix for production builds (GitHub Pages)
+  ...(process.env.NODE_ENV === 'production' && {
+    basePath: '/technicals',
+    assetPrefix: '/technicals/',
+  }),
 }
 
 export default nextConfig

@@ -61,7 +61,7 @@ jobs:
           echo "Verifying required index.html exists"; [ -f out/index.html ] || { echo "Missing out/index.html" >&2; exit 1; }
 
       - name: Upload artifact
-        uses: actions/upload-pages-artifact@v3
+        uses: actions/upload-pages-artifact@v4
         with:
           path: ./out
 

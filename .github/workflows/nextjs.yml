@@ -27,11 +27,8 @@ jobs:
           echo "=== Cleaning potential conflicting files ==="
           rm -rf .next || true
           rm -rf out || true
-          rm -rf node_modules || true
-          rm -f next.config.js || true
-          find . -name "next.config.js" -delete || true
-          echo "=== Verifying clean state ==="
-          ls -la next.config.* || true
+          echo "Node version: $(node -v)"
+          echo "Yarn version: $(yarn -v)"
       
       - name: Setup Node.js
         uses: actions/setup-node@v4
@@ -46,7 +43,21 @@ jobs:
         env:
           GITHUB_PAGES: true
           NODE_ENV: production
-        run: yarn build
+        run: |
+          echo "Running next build (output=export should trigger static export)"
+          yarn build
+          if [ ! -d out ]; then
+            echo "No ./out directory after build. Running next export explicitly..."
+            yarn export || npx next export || true
+          fi
+          if [ ! -d out ]; then
+            echo "ERROR: ./out still missing. Listing tree for debugging:" >&2
+            ls -R . | head -100
+            echo "Contents of .next:"
+            ls -R .next | head -200 || true
+            exit 1
+          fi
+          echo "Final out directory contents:"; find out -maxdepth 2 -type f | head -50
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

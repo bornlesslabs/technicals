@@ -1,6 +1,5 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
   eslint: {
     ignoreDuringBuilds: true,
   },
@@ -10,8 +9,9 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Only set basePath and assetPrefix for production builds (GitHub Pages)
+  // Only set export output and GitHub Pages config for production builds
   ...(process.env.NODE_ENV === 'production' && {
+    output: 'export',
     basePath: '/technicals',
     assetPrefix: '/technicals/',
   }),

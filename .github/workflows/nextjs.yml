@@ -42,50 +42,11 @@ jobs:
       - name: Install dependencies
         run: yarn install --immutable
       
-      - name: Force ES Module configuration
-        run: |
-          echo "=== Ensuring ES module environment ==="
-          echo "=== Current next.config.mjs ==="
-          cat next.config.mjs
-          echo "=== Creating package-specific next config ==="
-          cat > next.config.mjs << 'EOF'
-          // Force ES module
-          /** @type {import('next').NextConfig} */
-          const nextConfig = {
-            eslint: {
-              ignoreDuringBuilds: true,
-            },
-            typescript: {
-              ignoreBuildErrors: true,
-            },
-            images: {
-              unoptimized: true,
-            },
-            // GitHub Pages and production configuration
-            ...(process.env.NODE_ENV === 'production' || process.env.GITHUB_PAGES === 'true') && {
-              output: 'export',
-              basePath: '/technicals',
-              assetPrefix: '/technicals/',
-            },
-          };
-          
-          export default nextConfig;
-          EOF
-          echo "=== Removing any js files and preventing creation ==="
-          rm -f next.config.js
-          chmod 444 next.config.mjs  # Make it read-only
-          echo "=== Current directory contents ==="
-          ls -la next.config.*
-      
       - name: Build Next.js
         env:
           GITHUB_PAGES: true
           NODE_ENV: production
-        run: |
-          echo "=== Pre-build check ==="
-          ls -la next.config.* || true
-          echo "=== Building ==="
-          yarn build
+        run: yarn build
       
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3

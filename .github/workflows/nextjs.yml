@@ -21,7 +21,7 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
-      
+
       - name: Clean workspace
         run: |
           echo "=== Cleaning potential conflicting files ==="
@@ -29,16 +29,16 @@ jobs:
           rm -rf out || true
           echo "Node version: $(node -v)"
           echo "Yarn version: $(yarn -v)"
-      
+
       - name: Setup Node.js
         uses: actions/setup-node@v4
         with:
           node-version: '20'
           cache: 'yarn'
-      
+
       - name: Install dependencies
         run: yarn install --immutable
-      
+
       - name: Build Next.js
         env:
           GITHUB_PAGES: true
@@ -58,7 +58,8 @@ jobs:
             exit 1
           fi
           echo "Final out directory contents:"; find out -maxdepth 2 -type f | head -50
-      
+          echo "Verifying required index.html exists"; [ -f out/index.html ] || { echo "Missing out/index.html" >&2; exit 1; }
+
       - name: Upload artifact
         uses: actions/upload-pages-artifact@v3
         with:

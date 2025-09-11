@@ -9,12 +9,12 @@ const nextConfig = {
   images: {
     unoptimized: true,
   },
-  // Only set export output and GitHub Pages config for production builds
-  ...(process.env.NODE_ENV === 'production' && {
+  // GitHub Pages and production configuration
+  ...(process.env.NODE_ENV === 'production' || process.env.GITHUB_PAGES === 'true') && {
     output: 'export',
     basePath: '/technicals',
     assetPrefix: '/technicals/',
-  }),
+  },
 }
 
 export default nextConfig

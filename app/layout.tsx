@@ -1,6 +1,7 @@
 import type { Metadata } from 'next';
 import { Geist, Azeret_Mono as Geist_Mono } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
+import Sidebar from '@/components/Sidebar';
 import './globals.css';
 
 const geistSans = Geist({
@@ -25,6 +26,9 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en" suppressHydrationWarning>
+      <head>
+        <meta name="viewport" content="width=device-width, initial-scale=1" />
+      </head>
       <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
         <ThemeProvider
           attribute="class"
@@ -32,7 +36,10 @@ export default function RootLayout({
           enableSystem
           disableTransitionOnChange
         >
-          {children}
+          <Sidebar />
+          <main className="ml-0 md:ml-[420px] transition-all" style={{ transitionDuration: '0s' }}>
+            {children}
+          </main>
         </ThemeProvider>
       </body>
     </html>

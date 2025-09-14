@@ -28,7 +28,7 @@ export default function Main({ bgImage }: MainProps) {
           data-node-id="49:86"
           className={`${alfa.className} text-black text-[40px] md:text-[72px] lg:text-[128px] leading-none`}
         >
-          menu
+          
         </h1>
       </div>
     </section>

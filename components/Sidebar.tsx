@@ -1,50 +1,177 @@
-import React from 'react'
+import React from 'react';
+import Image from 'next/image';
+import { Alfa_Slab_One } from 'next/font/google';
+
+const alfa = Alfa_Slab_One({ subsets: ['latin'], weight: '400', display: 'swap' });
 
 // Figma-provided asset constants (localhost preview server)
-const imgWorkOnHover = 'http://localhost:3845/assets/8d354a46bd8850c50c0f1bf0a8ff2b424a977624.svg'
-const imgCodeOnHover = 'http://localhost:3845/assets/30f84ffef5d716c563fa7d8aa32b226c6cb5c983.svg'
-const imgWritingOnHover = 'http://localhost:3845/assets/bc5b762f0c14e340d6188d73c2bb59f2f639c05d.svg'
-const imgDesignOnHover = 'http://localhost:3845/assets/62a72c026e4516b433c84e4ee774d506693b64c4.svg'
-const imgContactOnHover = 'http://localhost:3845/assets/091130bdf13df74aedbcc3d08d5e539fce2d03f7.svg'
+const imgWorkOnHover = '/assets/sidebar-1.svg';
+const imgCodeOnHover = '/assets/sidebar-2.svg';
+const imgWritingOnHover = '/assets/sidebar-3.svg';
+const imgDesignOnHover = '/assets/sidebar-4.svg';
+const imgContactOnHover = '/assets/sidebar-5.svg';
 
 export default function Sidebar() {
   return (
-    <aside className="relative w-full h-screen bg-[#f9f908]" data-name="sidebar" data-node-id="58:113">
-      <div className="absolute inset-0 max-w-[545px]">
-        <div className="absolute left-3 top-44 w-[366px]">
-          <h2 className="text-black text-6xl">work</h2>
+    <aside
+      className="fixed left-0 top-0 z-50 bg-[#f9f908]"
+      data-name="sidebar"
+      data-node-id="58:113"
+    >
+      {/* Mobile: stacked, keep heading sizes intact */}
+      <div className="md:hidden p-6 space-y-10">
+        <div className="group flex items-center justify-between">
+          <h2 className={`${alfa.className} text-black text-[128px] leading-none`}>menu</h2>
         </div>
 
-        <div className="absolute left-[172px] top-[450px] w-[185px]">
-          <img src={imgCodeOnHover} alt="code hover" />
+        <div className="group flex items-center justify-between">
+          <h2 className={`${alfa.className} text-black text-[128px] leading-none`}>work</h2>
+          <div className="relative w-12 h-12 opacity-0 group-hover:opacity-100 transition-opacity">
+            <Image src={imgWorkOnHover} alt="work hover" fill style={{ objectFit: 'contain' }} />
+          </div>
         </div>
 
-        <div className="absolute left-3 top-[358px] w-80">
-          <h3 className="text-black text-6xl">code</h3>
+        <div className="group flex items-center justify-between">
+          <h3 className={`${alfa.className} text-black text-[128px] leading-none`}>code</h3>
+          <div className="relative w-12 h-12 opacity-0 group-hover:opacity-100 transition-opacity">
+            <Image src={imgCodeOnHover} alt="code hover" fill style={{ objectFit: 'contain' }} />
+          </div>
         </div>
 
-        <div className="absolute left-[167px] top-[661px] w-[270px]">
-          <img src={imgWritingOnHover} alt="writing hover" />
+        <div className="group flex items-center justify-between">
+          <h3 className={`${alfa.className} text-black text-[128px] leading-none`}>writing</h3>
+          <div className="relative w-12 h-12 opacity-0 group-hover:opacity-100 transition-opacity">
+            <Image
+              src={imgWritingOnHover}
+              alt="writing hover"
+              fill
+              style={{ objectFit: 'contain' }}
+            />
+          </div>
         </div>
 
-        <div className="absolute left-3 top-[566px] w-[516px]">
-          <h3 className="text-black text-6xl">writing</h3>
+        <div className="group flex items-center justify-between">
+          <h3 className={`${alfa.className} text-black text-[128px] leading-none`}>design</h3>
+          <div className="relative w-12 h-12 opacity-0 group-hover:opacity-100 transition-opacity">
+            <Image
+              src={imgDesignOnHover}
+              alt="design hover"
+              fill
+              style={{ objectFit: 'contain' }}
+            />
+          </div>
         </div>
 
-        <div className="absolute left-[173px] top-[830px] w-[249px]">
-          <img src={imgDesignOnHover} alt="design hover" />
+        <div className="group flex items-center justify-between">
+          <h3 className={`${alfa.className} text-black text-[128px] leading-none`}>contact</h3>
+          <div className="relative w-12 h-12 opacity-0 group-hover:opacity-100 transition-opacity">
+            <Image
+              src={imgContactOnHover}
+              alt="contact hover"
+              fill
+              style={{ objectFit: 'contain' }}
+            />
+          </div>
         </div>
+      </div>
 
-        <div className="absolute left-3 top-[774px] w-[452px]">
-          <h3 className="text-black text-6xl">design</h3>
+      {/* Desktop: collapsed by default, expand on hover */}
+      <div className="hidden md:block relative h-screen">
+        <div
+          className="sidebar-container relative w-[420px] hover:w-[545px] transition-all ease-out overflow-hidden h-full bg-[#f9f908]"
+          style={{ transitionDuration: '0s' }}
+        >
+          {/* Menu trigger area - always visible */}
+          <div className="absolute left-[13px] top-0 w-[402px] h-[132px] z-10">
+            <h3 className={`${alfa.className} text-black text-[128px] leading-none cursor-pointer`}>
+              menu
+            </h3>
+          </div>
+
+          {/* Expanded content - hidden by default, shown on hover */}
+          <div className="sidebar-expanded-content absolute inset-0 max-w-[545px] invisible transition-all duration-300">
+            <div className="group absolute left-[13px] top-[177px] w-[366px] h-[136px]">
+              <div className="absolute left-0 top-0 w-[366px] h-[136px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
+                <Image
+                  src={imgWorkOnHover}
+                  alt="work hover"
+                  fill
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
+              <h2
+                className={`${alfa.className} text-black text-[128px] leading-none relative z-10`}
+              >
+                work
+              </h2>
+            </div>
+
+            <div className="group absolute left-[15px] top-[358px] w-[320px] h-[163px]">
+              <div className="absolute left-0 top-0 w-[320px] h-[163px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
+                <Image
+                  src={imgCodeOnHover}
+                  alt="code hover"
+                  fill
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
+              <h3
+                className={`${alfa.className} text-black text-[128px] leading-none relative z-10`}
+              >
+                code
+              </h3>
+            </div>
+
+            <div className="group absolute left-[9px] top-[566px] w-[516px] h-[163px]">
+              <div className="absolute left-0 top-0 w-[516px] h-[163px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
+                <Image
+                  src={imgWritingOnHover}
+                  alt="writing hover"
+                  fill
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
+              <h3
+                className={`${alfa.className} text-black text-[128px] leading-none relative z-10`}
+              >
+                writing
+              </h3>
+            </div>
+
+            <div className="group absolute left-[9px] top-[774px] w-[452px] h-[159px]">
+              <div className="absolute left-0 top-0 w-[452px] h-[159px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
+                <Image
+                  src={imgDesignOnHover}
+                  alt="design hover"
+                  fill
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
+              <h3
+                className={`${alfa.className} text-black text-[128px] leading-none relative z-10`}
+              >
+                design
+              </h3>
+            </div>
+
+            <div className="group absolute left-[9px] top-[978px] w-[527px] h-[133px]">
+              <div className="absolute left-0 top-0 w-[527px] h-[133px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
+                <Image
+                  src={imgContactOnHover}
+                  alt="contact hover"
+                  fill
+                  style={{ objectFit: 'contain' }}
+                />
+              </div>
+              <h3
+                className={`${alfa.className} text-black text-[128px] leading-none relative z-10`}
+              >
+                contact
+              </h3>
+            </div>
+          </div>
         </div>
-
-        <div className="absolute left-[158px] top-[1007px] w-[270px]">
-          <img src={imgContactOnHover} alt="contact hover" />
-        </div>
-
-        <div className="absolute left-3 top-0 w-[402px]"><h3 className="text-black text-6xl">menu</h3></div>
       </div>
     </aside>
-  )
+  );
 }

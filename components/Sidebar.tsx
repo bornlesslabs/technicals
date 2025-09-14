@@ -1,15 +1,16 @@
 import React from 'react';
 import Image from 'next/image';
 import { Alfa_Slab_One } from 'next/font/google';
+import { getAssetPath } from '@/lib/assets';
 
 const alfa = Alfa_Slab_One({ subsets: ['latin'], weight: '400', display: 'swap' });
 
-// Figma-provided asset constants (localhost preview server)
-const imgWorkOnHover = '/assets/sidebar-1.svg';
-const imgCodeOnHover = '/assets/sidebar-2.svg';
-const imgWritingOnHover = '/assets/sidebar-3.svg';
-const imgDesignOnHover = '/assets/sidebar-4.svg';
-const imgContactOnHover = '/assets/sidebar-5.svg';
+// Figma-provided asset constants with proper GitHub Pages paths
+const imgWorkOnHover = getAssetPath('assets/sidebar-1.svg');
+const imgCodeOnHover = getAssetPath('assets/sidebar-2.svg');
+const imgWritingOnHover = getAssetPath('assets/sidebar-3.svg');
+const imgDesignOnHover = getAssetPath('assets/sidebar-4.svg');
+const imgContactOnHover = getAssetPath('assets/sidebar-5.svg');
 
 export default function Sidebar() {
   return (

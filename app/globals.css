@@ -80,18 +80,4 @@
   text-shadow: 0 0 10px rgba(255, 0, 255, 0.5), 0 0 20px rgba(255, 0, 255, 0.3), 0 0 30px rgba(255, 0, 255, 0.1);
 }
 
-/* Sidebar hover behavior */
-@media (min-width: 768px) {
-  .sidebar-container:hover {
-    transition-duration: 0.3s;
-  }
-
-  .sidebar-container:hover ~ main {
-    margin-left: 545px;
-    transition-duration: 0.3s;
-  }
-
-  .sidebar-container:hover .sidebar-expanded-content {
-    visibility: visible;
-  }
-}
+/* Sidebar behavior - fixed position overlay, no main content adjustment needed */

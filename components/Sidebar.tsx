@@ -1,4 +1,6 @@
-import React from 'react';
+'use client';
+
+import React, { useState } from 'react';
 import Image from 'next/image';
 import { Alfa_Slab_One } from 'next/font/google';
 import { getAssetPath } from '@/lib/assets';
@@ -13,6 +15,8 @@ const imgDesignOnHover = getAssetPath('assets/sidebar-4.svg');
 const imgContactOnHover = getAssetPath('assets/sidebar-5.svg');
 
 export default function Sidebar() {
+  const [isExpanded, setIsExpanded] = useState(false);
+
   return (
     <aside
       className="fixed left-0 top-0 z-50 bg-[#f9f908]"
@@ -79,18 +83,26 @@ export default function Sidebar() {
       {/* Desktop: collapsed by default, expand on hover */}
       <div className="hidden md:block relative h-screen">
         <div
-          className="sidebar-container relative w-[420px] hover:w-[545px] transition-all ease-out overflow-hidden h-full bg-[#f9f908]"
-          style={{ transitionDuration: '0s' }}
+          className={`sidebar-container relative transition-all ease-out overflow-hidden h-full bg-[#f9f908] ${
+            isExpanded ? 'w-[545px]' : 'w-[420px]'
+          }`}
+          style={{ transitionDuration: isExpanded ? '0.3s' : '0s' }}
+          onMouseLeave={() => setIsExpanded(false)}
         >
-          {/* Menu trigger area - always visible */}
-          <div className="absolute left-[13px] top-0 w-[402px] h-[132px] z-10">
+          {/* Menu trigger area - triggers expansion, entire sidebar keeps it open */}
+          <div 
+            className="menu-trigger absolute left-[13px] top-0 w-[402px] h-[132px] z-10"
+            onMouseEnter={() => setIsExpanded(true)}
+          >
             <h3 className={`${alfa.className} text-black text-[128px] leading-none cursor-pointer`}>
               menu
             </h3>
           </div>
 
-          {/* Expanded content - hidden by default, shown on hover */}
-          <div className="sidebar-expanded-content absolute inset-0 max-w-[545px] invisible transition-all duration-300">
+          {/* Expanded content - hidden by default, shown on menu hover */}
+          <div className={`sidebar-expanded-content absolute inset-0 max-w-[545px] transition-all duration-300 ${
+            isExpanded ? 'visible' : 'invisible'
+          }`}>
             <div className="group absolute left-[13px] top-[177px] w-[366px] h-[136px]">
               <div className="absolute left-0 top-0 w-[366px] h-[136px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
                 <Image

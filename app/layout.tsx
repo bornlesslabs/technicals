@@ -37,7 +37,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Sidebar />
-          <main className="ml-0 md:ml-[420px] transition-all" style={{ transitionDuration: '0s' }}>
+          <main className="relative w-full">
             {children}
           </main>
         </ThemeProvider>

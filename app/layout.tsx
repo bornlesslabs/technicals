@@ -2,6 +2,7 @@ import type { Metadata } from 'next';
 import { Geist, Azeret_Mono as Geist_Mono } from 'next/font/google';
 import { ThemeProvider } from '@/components/theme-provider';
 import Sidebar from '@/components/Sidebar';
+import Footer from '@/components/Footer';
 import './globals.css';
 
 const geistSans = Geist({
@@ -37,9 +38,8 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Sidebar />
-          <main className="relative w-full">
-            {children}
-          </main>
+          <main className="relative w-full">{children}</main>
+          <Footer />
         </ThemeProvider>
       </body>
     </html>

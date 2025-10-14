@@ -1,8 +1,8 @@
 import React from 'react';
-import Main from '../components/Main';
+import Contact from '../../components/Contact';
 
 export const metadata = {
-  title: 'Main',
+  title: 'Contact',
 };
 
 export default function Page() {
@@ -10,7 +10,7 @@ export default function Page() {
 
   return (
     <main>
-      <Main bgImage={bg} />
+      <Contact bgImage={bg} />
     </main>
   );
 }

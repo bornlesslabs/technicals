@@ -5,32 +5,30 @@ import Breadcrumb from './Breadcrumb';
 
 const alfa = Alfa_Slab_One({ subsets: ['latin'], weight: '400', display: 'swap' });
 
-type WorkProps = {
+type WritingProps = {
   /** optional background image URL (falls back to Figma placeholder) */
   bgImage?: string;
 };
 
-const FIGMA_WORK_BG = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png';
+const FIGMA_WRITING_BG = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png';
 
-export default function Work({ bgImage }: WorkProps) {
-  const imageSrc = bgImage ?? FIGMA_WORK_BG;
+export default function Writing({ bgImage }: WritingProps) {
+  const imageSrc = bgImage ?? FIGMA_WRITING_BG;
 
   return (
     <section
-      data-name="work"
-      data-node-id="58:105"
+      data-name="writing"
       className="relative w-full h-screen overflow-hidden bg-[#f9f908] flex items-start justify-center"
     >
       <div className="absolute inset-0 -z-10">
-        <Image src={imageSrc} alt="work background" fill style={{ objectFit: 'cover' }} />
+        <Image src={imageSrc} alt="writing background" fill style={{ objectFit: 'cover' }} />
       </div>
 
       <div
-        data-name="work-page"
-        data-node-id="52:152"
+        data-name="writing-page"
         className="absolute left-[13px] top-0 z-10"
       >
-        <Breadcrumb currentPage="work" />
+        <Breadcrumb currentPage="writing" />
       </div>
     </section>
   );

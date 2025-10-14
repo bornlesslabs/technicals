@@ -1,8 +1,8 @@
 import React from 'react';
-import Main from '../components/Main';
+import Writing from '../../components/Writing';
 
 export const metadata = {
-  title: 'Main',
+  title: 'Writing',
 };
 
 export default function Page() {
@@ -10,7 +10,7 @@ export default function Page() {
 
   return (
     <main>
-      <Main bgImage={bg} />
+      <Writing bgImage={bg} />
     </main>
   );
 }

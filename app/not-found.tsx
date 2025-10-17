@@ -1,24 +1,21 @@
-'use client';
-
-import React, { useState, useEffect } from 'react';
+import React from 'react';
 import Image from 'next/image';
-import Link from 'next/link';
-import { usePathname } from 'next/navigation';
 import { Alfa_Slab_One } from 'next/font/google';
-import { getAssetPath } from '@/lib/assets';
 
 const alfa = Alfa_Slab_One({ subsets: ['latin'], weight: '400', display: 'swap' });
 
-// Figma-provided asset constants with proper GitHub Pages paths
-const imgWorkOnHover = getAssetPath('assets/sidebar-1.svg');
-const imgAboutOnHover = getAssetPath('assets/sidebar-3.svg');
-const imgDesignOnHover = getAssetPath('assets/sidebar-4.svg');
+const FIGMA_NOT_FOUND_BG =
+  'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png';
 
-const SmileyIcon = () => (
+type SmileyIconProps = {
+  className?: string;
+};
+
+const SmileyIcon = ({ className }: SmileyIconProps) => (
   <svg
     viewBox="0 0 138 138"
     xmlns="http://www.w3.org/2000/svg"
-    className="h-[120px] w-[120px]"
+    className={className}
     aria-hidden
     preserveAspectRatio="xMidYMid meet"
   >
@@ -42,7 +39,6 @@ const SmileyIcon = () => (
       />
     </g>
     <defs>
-      {/* full filter defs from original SVG */}
       <filter
         id="filter0_g_186_36"
         x="0.2"
@@ -301,220 +297,23 @@ const SmileyIcon = () => (
   </svg>
 );
 
-export default function Sidebar() {
-  const pathname = usePathname();
-  const [open, setOpen] = useState<boolean>(() => {
-    try {
-      if (typeof window === 'undefined') return false;
-      const v = localStorage.getItem('sidebar:open');
-      return v === null ? false : v === 'true';
-    } catch {
-      return false;
-    }
-  });
-  useEffect(() => {
-    try {
-      localStorage.setItem('sidebar:open', String(open));
-    } catch {}
-  }, [open]);
-
-  // close on Escape for accessibility
-  useEffect(() => {
-    function onKey(e: KeyboardEvent) {
-      if (e.key === 'Escape') setOpen(false);
-    }
-    if (typeof window !== 'undefined') window.addEventListener('keydown', onKey);
-    return () => {
-      if (typeof window !== 'undefined') window.removeEventListener('keydown', onKey);
-    };
-  }, []);
-
-  // Check if we're on a subpage (not the home page)
-  const isSubpage = pathname !== '/';
-
-  // Don't render sidebar content on subpages, but show smiley toggle
-  if (isSubpage) {
-    return (
-      <>
-        {!open && (
-          <button
-            aria-label="Open sidebar"
-            title="Open sidebar"
-            onClick={() => setOpen(true)}
-            className="fixed left-0 top-0 z-50 w-[120px] h-[120px] bg-transparent p-0 hover:opacity-80 transition-opacity"
-          >
-            <SmileyIcon />
-          </button>
-        )}
-
-        <aside
-          aria-hidden={!open}
-          className={`fixed left-0 top-0 h-screen z-40 bg-[#f9f908] w-[545px] transform transition-transform duration-300 ease-in-out ${
-            open ? 'translate-x-0' : '-translate-x-full'
-          }`}
-          data-name="sidebar"
-          data-node-id="58:113"
-        >
-          <button
-            aria-label="Close sidebar"
-            onClick={() => setOpen(false)}
-            className="absolute top-4 right-4 p-2 rounded hover:bg-black/5 z-50"
-          >
-            <svg width="24" height="24" viewBox="0 0 24 24" fill="none" aria-hidden>
-              <path
-                d="M6 6l12 12M6 18L18 6"
-                stroke="#000"
-                strokeWidth="2"
-                strokeLinecap="round"
-                strokeLinejoin="round"
-              />
-            </svg>
-          </button>
-
-          <div className="sidebar-content relative h-full">
-            <Link href="/work" className="group absolute left-[13px] top-[177px]">
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[280px] h-[100px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
-                <Image
-                  src={imgWorkOnHover}
-                  alt="work hover"
-                  fill
-                  style={{ objectFit: 'contain' }}
-                />
-              </div>
-              <h2 className={`${alfa.className} text-black text-[96px] leading-none relative z-10`}>
-                work
-              </h2>
-            </Link>
-
-            <Link href="/about" className="group absolute left-[15px] top-[358px]">
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[240px] h-[100px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
-                <Image
-                  src={imgAboutOnHover}
-                  alt="about hover"
-                  fill
-                  style={{ objectFit: 'contain' }}
-                />
-              </div>
-              <h3 className={`${alfa.className} text-black text-[96px] leading-none relative z-10`}>
-                about
-              </h3>
-            </Link>
-
-            <Link href="/design" className="group absolute left-[9px] top-[566px]">
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[420px] h-[120px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
-                <Image
-                  src={imgDesignOnHover}
-                  alt="design hover"
-                  fill
-                  style={{ objectFit: 'contain' }}
-                />
-              </div>
-              <h3 className={`${alfa.className} text-black text-[96px] leading-none relative z-10`}>
-                design
-              </h3>
-            </Link>
-          </div>
-        </aside>
-      </>
-    );
-  }
+export default function NotFound() {
+  const bgImage = FIGMA_NOT_FOUND_BG;
 
   return (
-    <aside
-      className="fixed left-0 top-0 z-50 bg-[#f9f908]"
-      data-name="sidebar"
-      data-node-id="58:113"
+    <section
+      data-name="not-found"
+      className="relative w-full h-screen overflow-hidden bg-[#f9f908] flex items-center justify-center"
     >
-      {/* Mobile: stacked, responsive font sizes */}
-      <div className="md:hidden p-4 sm:p-6 space-y-6 sm:space-y-8">
-        <Link href="/work" className="group relative">
-          <h2
-            className={`${alfa.className} text-black text-[48px] sm:text-[64px] leading-none relative z-10`}
-          >
-            work
-          </h2>
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[140px] sm:w-[200px] h-[60px] sm:h-[80px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
-            <Image src={imgWorkOnHover} alt="work hover" fill style={{ objectFit: 'contain' }} />
-          </div>
-        </Link>
-
-        <Link href="/about" className="group relative">
-          <h3
-            className={`${alfa.className} text-black text-[48px] sm:text-[64px] leading-none relative z-10`}
-          >
-            about
-          </h3>
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[120px] sm:w-[170px] h-[60px] sm:h-[80px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
-            <Image src={imgAboutOnHover} alt="about hover" fill style={{ objectFit: 'contain' }} />
-          </div>
-        </Link>
-
-        <Link href="/design" className="group relative">
-          <h3
-            className={`${alfa.className} text-black text-[48px] sm:text-[64px] leading-none relative z-10`}
-          >
-            design
-          </h3>
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[210px] sm:w-[300px] h-[60px] sm:h-[80px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
-            <Image
-              src={imgDesignOnHover}
-              alt="design hover"
-              fill
-              style={{ objectFit: 'contain' }}
-            />
-          </div>
-        </Link>
+      <div className="absolute inset-0 -z-10">
+        <Image src={bgImage} alt="not found background" fill style={{ objectFit: 'cover' }} />
       </div>
 
-      {/* Desktop: always visible and expanded */}
-      <div className="hidden md:block relative h-screen">
-        <div className="sidebar-container relative h-full bg-[#f9f908] w-[545px]">
-          {/* Menu content - always visible */}
-          <div className="sidebar-content absolute inset-0 max-w-[545px]">
-            <Link href="/work" className="group absolute left-[13px] top-[177px]">
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[280px] h-[100px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
-                <Image
-                  src={imgWorkOnHover}
-                  alt="work hover"
-                  fill
-                  style={{ objectFit: 'contain' }}
-                />
-              </div>
-              <h2 className={`${alfa.className} text-black text-[96px] leading-none relative z-10`}>
-                work
-              </h2>
-            </Link>
-
-            <Link href="/about" className="group absolute left-[15px] top-[358px]">
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[240px] h-[100px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
-                <Image
-                  src={imgAboutOnHover}
-                  alt="about hover"
-                  fill
-                  style={{ objectFit: 'contain' }}
-                />
-              </div>
-              <h3 className={`${alfa.className} text-black text-[96px] leading-none relative z-10`}>
-                about
-              </h3>
-            </Link>
-
-            <Link href="/design" className="group absolute left-[9px] top-[566px]">
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[420px] h-[120px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
-                <Image
-                  src={imgDesignOnHover}
-                  alt="design hover"
-                  fill
-                  style={{ objectFit: 'contain' }}
-                />
-              </div>
-              <h3 className={`${alfa.className} text-black text-[96px] leading-none relative z-10`}>
-                design
-              </h3>
-            </Link>
-          </div>
-        </div>
+      <div className="z-10 flex items-center gap-8">
+        <span className={`${alfa.className} text-black text-[128px] leading-none`}>4</span>
+        <SmileyIcon className="h-[128px] w-[128px]" />
+        <span className={`${alfa.className} text-black text-[128px] leading-none`}>4</span>
       </div>
-    </aside>
+    </section>
   );
 }

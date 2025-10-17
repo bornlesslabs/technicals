@@ -16,7 +16,7 @@ export default function Footer() {
 
   return (
     <footer
-      className={`${alfa.className} fixed bottom-0 left-0 right-0 p-6 md:p-8 lg:p-10 font-bold text-black/100 z-40 bg-[#f9f908]`}
+      className={`${alfa.className} sticky bottom-0 w-full px-6 md:px-8 lg:px-10 pt-16 md:pt-20 lg:pt-24 pb-6 md:pb-8 lg:pb-10 font-bold text-black/100 z-20 bg-[#f9f908]`}
     >
       {/* Mobile: stacked layout */}
       <div className="flex flex-col gap-2 items-center sm:hidden text-[16pt]">
@@ -33,16 +33,12 @@ export default function Footer() {
             </div>
           </Link>
         </div>
-        <div className="text-center">
-          © bornless labs, {currentYear}
-        </div>
+        <div className="text-center">© bornless labs, {currentYear}</div>
       </div>
 
       {/* Tablet and Desktop: side-by-side layout with flexbox */}
       <div className="hidden sm:flex items-baseline justify-between text-[18pt] sm:text-[20pt] lg:text-[24pt]">
-        <div className="flex-1">
-          {/* Empty space for balance */}
-        </div>
+        <div className="flex-1">{/* Empty space for balance */}</div>
         <div className="flex-shrink-0">
           <Link href="/contact" className="relative group inline-block">
             <span className="relative z-10">contact</span>
@@ -56,9 +52,7 @@ export default function Footer() {
             </div>
           </Link>
         </div>
-        <div className="flex-1 text-right">
-          © bornless labs, {currentYear}
-        </div>
+        <div className="flex-1 text-right">© bornless labs, {currentYear}</div>
       </div>
     </footer>
   );

@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import { Alfa_Slab_One } from 'next/font/google';
-import Breadcrumb from './Breadcrumb';
 
 const alfa = Alfa_Slab_One({ subsets: ['latin'], weight: '400', display: 'swap' });
 
@@ -24,11 +23,10 @@ export default function Design({ bgImage }: DesignProps) {
         <Image src={imageSrc} alt="design background" fill style={{ objectFit: 'cover' }} />
       </div>
 
-      <div
-        data-name="design-page"
-        className="absolute left-[13px] top-0 z-10"
-      >
-        <Breadcrumb currentPage="design" />
+      <div data-name="design-page" className="absolute left-[140px] top-0 z-10">
+        <h1 className={`${alfa.className} text-black text-[96px] leading-none`} aria-label="design">
+          design
+        </h1>
       </div>
     </section>
   );

@@ -1,7 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
 import { Alfa_Slab_One } from 'next/font/google';
-import Breadcrumb from './Breadcrumb';
 
 const alfa = Alfa_Slab_One({ subsets: ['latin'], weight: '400', display: 'swap' });
 
@@ -10,7 +9,8 @@ type WritingProps = {
   bgImage?: string;
 };
 
-const FIGMA_WRITING_BG = 'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png';
+const FIGMA_WRITING_BG =
+  'http://localhost:3845/assets/10c13ac1a228a365cb98a0064b1d5afbc84887b2.png';
 
 export default function Writing({ bgImage }: WritingProps) {
   const imageSrc = bgImage ?? FIGMA_WRITING_BG;
@@ -24,11 +24,13 @@ export default function Writing({ bgImage }: WritingProps) {
         <Image src={imageSrc} alt="writing background" fill style={{ objectFit: 'cover' }} />
       </div>
 
-      <div
-        data-name="writing-page"
-        className="absolute left-[13px] top-0 z-10"
-      >
-        <Breadcrumb currentPage="writing" />
+      <div data-name="writing-page" className="absolute left-[140px] top-0 z-10">
+        <h1
+          className={`${alfa.className} text-black text-[96px] leading-none`}
+          aria-label="writing"
+        >
+          writing
+        </h1>
       </div>
     </section>
   );

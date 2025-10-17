@@ -75,6 +75,11 @@
   }
 }
 
+main {
+  min-height: 100vh;
+  padding-bottom: 12rem;
+}
+
 .neon-gradient {
   @apply bg-clip-text text-transparent bg-gradient-to-r from-pink-500 via-purple-500 to-indigo-500;
   text-shadow: 0 0 10px rgba(255, 0, 255, 0.5), 0 0 20px rgba(255, 0, 255, 0.3), 0 0 30px rgba(255, 0, 255, 0.1);

@@ -24,7 +24,7 @@ export default function Contact({ bgImage }: ContactProps) {
         <Image src={imageSrc} alt="contact background" fill style={{ objectFit: 'cover' }} />
       </div>
 
-      <div data-name="contact-page" className="absolute left-[140px] top-0 z-10">
+      <div data-name="contact-page" className="fixed left-[140px] top-0 z-10">
         <h1
           className={`${alfa.className} text-black text-[96px] leading-none`}
           aria-label="contact"

@@ -23,7 +23,7 @@ export default function About({ bgImage }: AboutProps) {
         <Image src={imageSrc} alt="about background" fill style={{ objectFit: 'cover' }} />
       </div>
 
-      <div data-name="about-page" className="absolute left-[140px] top-0 z-10">
+      <div data-name="about-page" className="fixed left-[140px] top-0 z-10">
         <h1 className={`${alfa.className} text-black text-[96px] leading-none`} aria-label="about">
           about
         </h1>

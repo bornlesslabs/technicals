@@ -24,7 +24,7 @@ export default function Work({ bgImage }: WorkProps) {
         <Image src={imageSrc} alt="work background" fill style={{ objectFit: 'cover' }} />
       </div>
 
-      <div data-name="work-page" data-node-id="52:152" className="absolute left-[140px] top-0 z-10">
+      <div data-name="work-page" data-node-id="52:152" className="fixed left-[140px] top-0 z-10">
         <h1 className={`${alfa.className} text-black text-[96px] leading-none`} aria-label="work">
           work
         </h1>

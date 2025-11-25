@@ -101,7 +101,7 @@ export default function Sidebar() {
 
           <div className="sidebar-content relative h-full">
             <Link href="/work" className="group absolute left-[13px] top-[177px]" onClick={() => setOpen(false)}>
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[280px] h-[100px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[420px] h-[150px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
                 <Image
                   src={imgWorkOnHover}
                   alt="work hover"
@@ -115,7 +115,7 @@ export default function Sidebar() {
             </Link>
 
             <Link href="/about" className="group absolute left-[15px] top-[358px]" onClick={() => setOpen(false)}>
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[240px] h-[100px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[360px] h-[150px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
                 <Image
                   src={imgAboutOnHover}
                   alt="about hover"
@@ -129,7 +129,7 @@ export default function Sidebar() {
             </Link>
 
             <Link href="/contact" className="group absolute left-[9px] top-[566px]" onClick={() => setOpen(false)}>
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[420px] h-[120px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[630px] h-[180px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
                 <Image
                   src={imgContactOnHover}
                   alt="contact hover"
@@ -161,7 +161,7 @@ export default function Sidebar() {
           >
             work
           </h2>
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[140px] sm:w-[200px] h-[60px] sm:h-[80px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[210px] sm:w-[300px] h-[90px] sm:h-[120px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
             <Image src={imgWorkOnHover} alt="work hover" fill style={{ objectFit: 'contain' }} />
           </div>
         </Link>
@@ -172,7 +172,7 @@ export default function Sidebar() {
           >
             about
           </h3>
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[120px] sm:w-[170px] h-[60px] sm:h-[80px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
+          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[180px] sm:w-[255px] h-[90px] sm:h-[120px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
             <Image src={imgAboutOnHover} alt="about hover" fill style={{ objectFit: 'contain' }} />
           </div>
         </Link>
@@ -183,7 +183,7 @@ export default function Sidebar() {
           >
             contact
           </h3>
-          <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[210px] sm:w-[300px] h-[60px] sm:h-[80px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
+          <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[315px] sm:w-[450px] h-[90px] sm:h-[120px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
             <Image
               src={imgContactOnHover}
               alt="contact hover"
@@ -200,7 +200,7 @@ export default function Sidebar() {
           {/* Menu content - always visible */}
           <div className="sidebar-content absolute inset-0 max-w-[545px]">
             <Link href="/work" className="group absolute left-[13px] top-[177px]">
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[280px] h-[100px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[420px] h-[150px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
                 <Image
                   src={imgWorkOnHover}
                   alt="work hover"
@@ -214,7 +214,7 @@ export default function Sidebar() {
             </Link>
 
             <Link href="/about" className="group absolute left-[15px] top-[358px]">
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[240px] h-[100px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
+              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[360px] h-[150px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
                 <Image
                   src={imgAboutOnHover}
                   alt="about hover"
@@ -228,7 +228,7 @@ export default function Sidebar() {
             </Link>
 
             <Link href="/contact" className="group absolute left-[9px] top-[566px]">
-              <div className="absolute left-0 top-1/2 -translate-y-1/2 w-[420px] h-[120px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
+              <div className="absolute left-1/2 top-1/2 -translate-x-1/2 -translate-y-1/2 w-[630px] h-[180px] opacity-0 group-hover:opacity-100 transition-opacity z-0">
                 <Image
                   src={imgContactOnHover}
                   alt="contact hover"

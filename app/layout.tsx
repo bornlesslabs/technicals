@@ -30,7 +30,7 @@ export default function RootLayout({
       <head>
         <meta name="viewport" content="width=device-width, initial-scale=1" />
       </head>
-      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased`}>
+      <body className={`${geistSans.variable} ${geistMono.variable} font-sans antialiased h-screen w-screen overflow-hidden flex flex-col`}>
         <ThemeProvider
           attribute="class"
           defaultTheme="system"
@@ -38,7 +38,7 @@ export default function RootLayout({
           disableTransitionOnChange
         >
           <Sidebar />
-          <main className="relative w-full">{children}</main>
+          <main className="relative w-full flex-1 overflow-hidden">{children}</main>
           <Footer />
         </ThemeProvider>
       </body>

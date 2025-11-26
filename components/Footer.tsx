@@ -10,6 +10,7 @@ const alfa = Alfa_Slab_One({ subsets: ['latin'], weight: '400', display: 'swap' 
 
 // Use contact hover asset
 const imgContactOnHover = getAssetPath('assets/sidebar-5.svg');
+const barcode = getAssetPath('assets/bornless-labs-pdf417.gif');
 
 export default function Footer() {
   const currentYear = new Date().getFullYear();
@@ -33,7 +34,16 @@ export default function Footer() {
             </div>
           </Link>
         </div>
-        <div className="text-center">© bornless labs, {currentYear}</div>
+        <div className="text-center flex flex-col items-center gap-2">
+          <div>© bornless labs, {currentYear}</div>
+          <Image
+            src={barcode}
+            alt="Bornless Labs Barcode"
+            width={300}
+            height={30}
+            className="object-fill mix-blend-multiply"
+          />
+        </div>
       </div>
 
       {/* Tablet and Desktop: side-by-side layout with flexbox */}
@@ -52,7 +62,16 @@ export default function Footer() {
             </div>
           </Link>
         </div>
-        <div className="flex-1 text-right">© bornless labs, {currentYear}</div>
+        <div className="flex-1 text-right flex flex-col items-end gap-2">
+          <div>© bornless labs, {currentYear}</div>
+          <Image
+            src={barcode}
+            alt="Bornless Labs Barcode"
+            width={150}
+            height={30}
+            className="object-contain"
+          />
+        </div>
       </div>
     </footer>
   );

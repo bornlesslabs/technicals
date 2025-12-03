@@ -4,10 +4,8 @@ import React, { useState, useEffect } from 'react';
 import Image from 'next/image';
 import Link from 'next/link';
 import { usePathname } from 'next/navigation';
-import { Alfa_Slab_One } from 'next/font/google';
 import { getAssetPath } from '@/lib/assets';
 
-const alfa = Alfa_Slab_One({ subsets: ['latin'], weight: '400', display: 'swap' });
 
 // Figma-provided asset constants with proper GitHub Pages paths
 const imgWorkOnHover = getAssetPath('assets/sidebar-1.svg');
@@ -109,7 +107,7 @@ export default function Sidebar() {
                   style={{ objectFit: 'contain' }}
                 />
               </div>
-              <h2 className={`${alfa.className} text-black text-[96px] leading-none relative z-10`}>
+              <h2 className={`font-departure text-black text-[96px] leading-none relative z-10`}>
                 work
               </h2>
             </Link>
@@ -123,7 +121,7 @@ export default function Sidebar() {
                   style={{ objectFit: 'contain' }}
                 />
               </div>
-              <h3 className={`${alfa.className} text-black text-[96px] leading-none relative z-10`}>
+              <h3 className={`font-departure text-black text-[96px] leading-none relative z-10`}>
                 about
               </h3>
             </Link>
@@ -137,7 +135,7 @@ export default function Sidebar() {
                   style={{ objectFit: 'contain' }}
                 />
               </div>
-              <h3 className={`${alfa.className} text-black text-[96px] leading-none relative z-10`}>
+              <h3 className={`font-departure text-black text-[96px] leading-none relative z-10`}>
                 contact
               </h3>
             </Link>
@@ -157,7 +155,7 @@ export default function Sidebar() {
       <div className="md:hidden p-4 sm:p-6 space-y-6 sm:space-y-8">
         <Link href="/work" className="group relative">
           <h2
-            className={`${alfa.className} text-black text-[48px] sm:text-[64px] leading-none relative z-10`}
+            className={`font-departure text-black text-[48px] sm:text-[64px] leading-none relative z-10`}
           >
             work
           </h2>
@@ -168,7 +166,7 @@ export default function Sidebar() {
 
         <Link href="/about" className="group relative">
           <h3
-            className={`${alfa.className} text-black text-[48px] sm:text-[64px] leading-none relative z-10`}
+            className={`font-departure text-black text-[48px] sm:text-[64px] leading-none relative z-10`}
           >
             about
           </h3>
@@ -179,7 +177,7 @@ export default function Sidebar() {
 
         <Link href="/contact" className="group relative">
           <h3
-            className={`${alfa.className} text-black text-[48px] sm:text-[64px] leading-none relative z-10`}
+            className={`font-departure text-black text-[48px] sm:text-[64px] leading-none relative z-10`}
           >
             contact
           </h3>
@@ -208,7 +206,7 @@ export default function Sidebar() {
                   style={{ objectFit: 'contain' }}
                 />
               </div>
-              <h2 className={`${alfa.className} text-black text-[96px] leading-none relative z-10`}>
+              <h2 className={`font-departure text-black text-[96px] leading-none relative z-10`}>
                 work
               </h2>
             </Link>
@@ -222,7 +220,7 @@ export default function Sidebar() {
                   style={{ objectFit: 'contain' }}
                 />
               </div>
-              <h3 className={`${alfa.className} text-black text-[96px] leading-none relative z-10`}>
+              <h3 className={`font-departure text-black text-[96px] leading-none relative z-10`}>
                 about
               </h3>
             </Link>
@@ -236,7 +234,7 @@ export default function Sidebar() {
                   style={{ objectFit: 'contain' }}
                 />
               </div>
-              <h3 className={`${alfa.className} text-black text-[96px] leading-none relative z-10`}>
+              <h3 className={`font-departure text-black text-[96px] leading-none relative z-10`}>
                 contact
               </h3>
             </Link>

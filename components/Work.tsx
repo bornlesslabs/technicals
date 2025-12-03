@@ -1,8 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Alfa_Slab_One } from 'next/font/google';
 
-const alfa = Alfa_Slab_One({ subsets: ['latin'], weight: '400', display: 'swap' });
 
 type WorkProps = {
   /** optional background image URL (falls back to Figma placeholder) */
@@ -25,7 +23,7 @@ export default function Work({ bgImage }: WorkProps) {
       </div>
 
       <div data-name="work-page" data-node-id="52:152" className="fixed left-[140px] top-0 z-10">
-        <h1 className={`${alfa.className} text-black text-[96px] leading-none`} aria-label="work">
+        <h1 className={`font-departure text-black text-[96px] leading-none`} aria-label="work">
           work
         </h1>
       </div>

@@ -1,9 +1,8 @@
 import React from 'react';
 import Image from 'next/image';
-import { Alfa_Slab_One } from 'next/font/google';
+import { getAssetPath } from '@/lib/assets';
 
-const alfa = Alfa_Slab_One({ subsets: ['latin'], weight: '400', display: 'swap' });
-
+const idCard = getAssetPath('assets/mnau-id-card.svg');
 type AboutProps = {
   /** optional background image URL (falls back to Figma placeholder) */
   bgImage?: string;
@@ -24,9 +23,19 @@ export default function About({ bgImage }: AboutProps) {
       </div>
 
       <div data-name="about-page" className="fixed left-[140px] top-0 z-10">
-        <h1 className={`${alfa.className} text-black text-[96px] leading-none`} aria-label="about">
+        <h1 className={`font-departure text-black text-[96px] leading-none`} aria-label="about">
           about
         </h1>
+      </div>
+
+      <div className="absolute bottom-48 md:bottom-64 right-4 md:right-8 z-10">
+        <Image
+          src={idCard}
+          alt="MNAU ID Card"
+          width={150}
+          height={100}
+          className="object-contain"
+        />
       </div>
     </section>
   );

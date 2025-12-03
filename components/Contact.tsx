@@ -1,8 +1,6 @@
 import React from 'react';
 import Image from 'next/image';
-import { Alfa_Slab_One } from 'next/font/google';
 
-const alfa = Alfa_Slab_One({ subsets: ['latin'], weight: '400', display: 'swap' });
 
 type ContactProps = {
   /** optional background image URL (falls back to Figma placeholder) */
@@ -26,7 +24,7 @@ export default function Contact({ bgImage }: ContactProps) {
 
       <div data-name="contact-page" className="fixed left-[140px] top-0 z-10">
         <h1
-          className={`${alfa.className} text-black text-[96px] leading-none`}
+          className={`font-departure text-black text-[96px] leading-none`}
           aria-label="contact"
         >
           contact

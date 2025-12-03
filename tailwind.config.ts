@@ -14,7 +14,7 @@ const config: Config = {
   theme: {
     extend: {
       fontFamily: {
-        departure: ['"Departure Mono"', 'monospace'],
+        departure: ['var(--font-departure)', 'monospace'],
       },
       colors: {
         background: 'hsl(var(--background))',

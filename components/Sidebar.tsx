@@ -13,7 +13,7 @@ const imgAboutOnHover = getAssetPath('assets/sidebar-3.svg');
 const imgContactOnHover = getAssetPath('assets/sidebar-5.svg');
 
 const smileyX = getAssetPath('assets/smiley-x.svg');
-const closeIcon = getAssetPath('icons/close.png');
+const closeIcon = getAssetPath('icons/close-sq.png');
 
 export default function Sidebar() {
   const pathname = usePathname();

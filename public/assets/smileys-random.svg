@@ -1,4 +1,22 @@
 <svg width="1539" height="944" viewBox="0 0 1539 944" fill="none" xmlns="http://www.w3.org/2000/svg">
+<style>
+  @keyframes jiggle {
+    0% { transform: translate(0, 0) rotate(0deg); }
+    25% { transform: translate(2px, 2px) rotate(1deg); }
+    50% { transform: translate(0, 4px) rotate(0deg); }
+    75% { transform: translate(-2px, 2px) rotate(-1deg); }
+    100% { transform: translate(0, 0) rotate(0deg); }
+  }
+  g {
+    animation: jiggle 3s infinite ease-in-out;
+    transform-origin: center;
+    transform-box: fill-box;
+  }
+  g:nth-child(2n) { animation-duration: 3.5s; animation-delay: 0.2s; }
+  g:nth-child(3n) { animation-duration: 4.2s; animation-delay: 0.5s; }
+  g:nth-child(5n) { animation-duration: 2.8s; animation-delay: 0.8s; }
+  g:nth-child(7n) { animation-duration: 5s; animation-delay: 1.2s; }
+</style>
 <g filter="url(#filter0_g_231_1697)">
 <circle cx="1216.2" cy="616.2" r="55" fill="#F9F908" stroke="black" stroke-width="10"/>
 <path d="M1194.53 630.2L1200.27 637.629L1206 641.343L1210.78 643.2H1218.42L1227.02 641.343L1232.76 637.629L1237.53 630.2" stroke="black" stroke-width="12" stroke-linecap="round"/>

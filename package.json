@@ -7,11 +7,11 @@
     "build:export": "next build && next export",
     "dev": "next dev",
     "clean": "rimraf .next",
-    "dev:clean": "yarn clean && yarn dev",
+    "dev:clean": "pnpm clean && pnpm dev",
     "lint": "eslint . --max-warnings=0",
     "start": "next start",
     "export": "next export",
-    "deploy": "yarn build && (test -d out || yarn export) && touch out/.nojekyll",
+    "deploy": "pnpm build && (test -d out || pnpm export) && touch out/.nojekyll",
     "figma:connect": "figma connect publish",
     "figma:parse": "figma connect parse",
     "figma:create": "figma connect create"
@@ -91,5 +91,5 @@
     "ts-node": "^10.9.2",
     "typescript": "^5.9.3"
   },
-  "packageManager": "yarn@4.9.2"
+  "packageManager": "pnpm@9.1.0"
 }

@@ -25,7 +25,7 @@ Going forward it will be hosted on https://bornlesslabs.github.io/technicals/ un
     };
     ```
 2. Ensure all dynamic features are compatible with static export (see Next.js docs for limitations).
-3. Test locally: `yarn build && yarn export`
+3. Test locally: `pnpm build && pnpm export`
     - Output should be in the `out/` directory.
 
 ## 4. Set Up GitHub Actions for Deployment
@@ -48,8 +48,11 @@ Going forward it will be hosted on https://bornlesslabs.github.io/technicals/ un
              - uses: actions/setup-node@v4
                 with:
                    node-version: 20
-             - run: yarn install --immutable
-             - run: yarn build && yarn export
+             - uses: pnpm/action-setup@v3
+               with:
+                  version: 9
+                  run_install: true
+             - run: pnpm build && pnpm export
              - name: Deploy to GitHub Pages
                 uses: peaceiris/actions-gh-pages@v4
                 with:

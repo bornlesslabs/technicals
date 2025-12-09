@@ -23,7 +23,7 @@ This directory contains Code Connect files that link your React components to Fi
 
 3. **Sync with Figma:**
    ```bash
-   yarn figma connect publish --token=$FIGMA_ACCESS_TOKEN
+   pnpm figma connect publish --token=$FIGMA_ACCESS_TOKEN
    ```
 
 4. **Verify the connection:**
@@ -40,9 +40,9 @@ FIGMA_ACCESS_TOKEN=your_figma_token_here
 
 ## Commands
 
-- **Publish Code Connect files:** `yarn figma connect publish`
-- **Parse components:** `yarn figma connect parse`
-- **Create new connections:** `yarn figma connect create`
+- **Publish Code Connect files:** `pnpm figma connect publish`
+- **Parse components:** `pnpm figma connect parse`
+- **Create new connections:** `pnpm figma connect create`
 
 ## Troubleshooting
 

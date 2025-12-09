@@ -28,16 +28,19 @@ jobs:
           rm -rf .next || true
           rm -rf out || true
           echo "Node version: $(node -v)"
-          echo "Yarn version: $(yarn -v)"
 
       - name: Setup Node.js
-        uses: actions/setup-node@v6
+        uses: actions/setup-node@v4
         with:
           node-version: '20'
-          cache: 'yarn'
 
       - name: Install dependencies
-        run: yarn install --immutable
+        uses: pnpm/action-setup@v3
+        with:
+          version: 9
+          run_install: |
+            - recursive: true
+              args: [--frozen-lockfile, --strict-peer-dependencies]
 
       - name: Build Next.js
         env:
@@ -45,10 +48,10 @@ jobs:
           NODE_ENV: production
         run: |
           echo "Running next build (output=export should trigger static export)"
-          yarn build
+          pnpm build
           if [ ! -d out ]; then
             echo "No ./out directory after build. Running next export explicitly..."
-            yarn export || npx next export || true
+            pnpm export || npx next export || true
           fi
           if [ ! -d out ]; then
             echo "ERROR: ./out still missing. Listing tree for debugging:" >&2
